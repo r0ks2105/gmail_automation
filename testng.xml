@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="LoginToGmail">
+        <classes>
+            <class name="WebDriverInit"></class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="JS_TEST">
+        <classes>
+            <class name="JS_Alerts"></class>
+        </classes>
+    </test>
+</suite>
