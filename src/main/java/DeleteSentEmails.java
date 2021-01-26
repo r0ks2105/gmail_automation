@@ -21,7 +21,7 @@ public class DeleteSentEmails {
         WebElement moreButton = this.driver.findElement(By.cssSelector("span[class='CJ']"));
         moreButton.click();
 
-        for (int i = 1; i < emailsCount; i++) {
+        for (int i = 0; i < emailsCount; i++) {
             WebElement firstMessage = this.driver.findElement(By.cssSelector("table[role='grid'] tbody > :first-child"));
             WebElement deletedEmails = this.driver.findElement(By.cssSelector("a[href='https://mail.google.com/mail/u/0/#trash']"));
             new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
