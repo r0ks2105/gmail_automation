@@ -1,8 +1,98 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.08 sec <<< FAILURE! - in TestSuite
-webDriver(JS_Alerts)  Time elapsed: 0.163 sec  <<< FAILURE!
-java.lang.NullPointerException: inStream parameter is null
-	at JS_Alerts.webDriver(JS_Alerts.java:18)
+Tests run: 10, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 90.165 sec <<< FAILURE! - in TestSuite
+allPages(WebDriverInit)  Time elapsed: 23.506 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"div.TO>div[class='TN bzz aHS-aHP']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+*** Element info: {Using=css selector, value=div.TO>div[class='TN bzz aHS-aHP']}
+	at WebDriverInit.allPages(WebDriverInit.java:69)
+
+deleteAllSentEmails(WebDriverInit)  Time elapsed: 17.961 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"// div[2]/div[1]/div[2]/div[1]/span/div[1]/span/span[2]"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+*** Element info: {Using=xpath, value=// div[2]/div[1]/div[2]/div[1]/span/div[1]/span/span[2]}
+	at WebDriverInit.deleteAllSentEmails(WebDriverInit.java:126)
+
+deleteAllSentEmails(WebDriverInit)  Time elapsed: 5.063 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+*** Element info: {Using=css selector, value=div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']}
+	at WebDriverInit.deleteAllSentEmails(WebDriverInit.java:110)
+
+deleteAllSentEmails(WebDriverInit)  Time elapsed: 5.058 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+*** Element info: {Using=css selector, value=div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']}
+	at WebDriverInit.deleteAllSentEmails(WebDriverInit.java:110)
+
+deleteOneSentEmail(WebDriverInit)  Time elapsed: 5.039 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+*** Element info: {Using=css selector, value=div.aim>div[class='TO']>div[class='TN bzz aHS-bnu']}
+	at WebDriverInit.deleteOneSentEmail(WebDriverInit.java:138)
+
+sendMessage(WebDriverInit)  Time elapsed: 1.955 sec  <<< FAILURE!
+java.lang.AssertionError: expected [Message sent.] but found [Sending...]
+	at WebDriverInit.sendMessage(WebDriverInit.java:88)
+
+sendMessage(WebDriverInit)  Time elapsed: 2.001 sec  <<< FAILURE!
+java.lang.AssertionError: expected [Message sent.] but found [Sending...]
+	at WebDriverInit.sendMessage(WebDriverInit.java:88)
+
+sendMessage(WebDriverInit)  Time elapsed: 4.818 sec  <<< FAILURE!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for invisibility of [[ChromeDriver: chrome on WINDOWS (5f2a4a3293bd4383267392ed257ca28e)] -> css selector: div[class='nH Hd']] (tried for 3 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+	at WebDriverInit.sendMessage(WebDriverInit.java:86)
+
+sendMessageWithoutSubject(WebDriverInit)  Time elapsed: 1.095 sec  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <div class="T-I T-I-KE L3" style="user-select: none" role="button" tabindex="0" jscontroller="eIu7Db" jsaction="click:dlrqf; clickmod:dlrqf" jslog="20510; u014N:cOuCgd,Kr2w4b" gh="cm">...</div> is not clickable at point (80, 104). Other element would receive the click: <div class="Kj-JD-Jh" aria-hidden="true" style="opacity: 0.75; width: 1920px; height: 926px;"></div>
+  (Session info: chrome=88.0.4324.150)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4035PI9', ip: '172.25.116.193', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\R0kS\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:52615}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f2a4a3293bd4383267392ed257ca28e
+	at WebDriverInit.sendMessageWithoutSubject(WebDriverInit.java:97)
 

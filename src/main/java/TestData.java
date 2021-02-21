@@ -8,14 +8,22 @@ public class TestData {
                 "Lorem ipsum dolor sit amet, " +
                 "consectetur adipiscing elit, sed do eiusmod " +
                 "tempor incididunt ut labore et " +
-                "dolore magna aliqua.","Письмо отправлено."},
+                "dolore magna aliqua.","Message sent."},
                 {"mytests4selenium2@yopmail.com",
                         "Test subject2",
                         "Lorem ipsum dolor sit amet, " +
                 "consectetur adipiscing elit, sed do eiusmod " +
                 "tempor incididunt ut labore et " +
                 "dolore magna aliqua222.",
-                        "Письмо отправлено."}};
+                        "Message sent."},
+                        {" ",
+                        "Test subject2",
+                        "Lorem ipsum dolor sit amet, " +
+                                "consectetur adipiscing elit, sed do eiusmod " +
+                                "tempor incididunt ut labore et " +
+                                "dolore magna aliqua222.",
+                        "Message sent."}
+        };
         return sendMessageData;
     }
 }

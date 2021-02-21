@@ -21,4 +21,7 @@ public class SignInPage {
         nextButton.click();
         return new WelcomePage(this.driver);
     }
+    public static String getMAIL() {
+        return MAIL;
+    }
 }

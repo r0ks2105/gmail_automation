@@ -2,32 +2,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class DeleteSentEmails {
     private WebDriver driver;
-    private String deleteToolTip = "Цепочка помещена в корзину.";
+    @FindBy(xpath = "// div[2]/div[1]/div[2]/div[1]/span/div[1]/span/span[2]")
+    WebElement countOfEmails;
+    @FindBy(css = "div[class='ae4 UI'] tbody > :first-child")
+    WebElement firstMessage;
+    @FindBy(css = "span .bAq")
+    WebElement confirmationToolTip;
+    @FindBy(css = "a[href='https://mail.google.com/mail/u/0/#trash']")
+    WebElement deletedEmails;
+    public String deleteToolTip = "Conversation moved to Trash.";
 
     public DeleteSentEmails(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public void deleteMessages() throws InterruptedException {
-        WebElement sentMessages = this.driver.findElement(By.cssSelector("a[href='https://mail.google.com/mail/u/0/#sent']"));
-        sentMessages.click();
-        WebElement countOfEmails = this.driver.findElement(By.cssSelector("div[class='J-J5-Ji amH J-JN-I'] > span > span.ts"));
-        int emailsCount = Integer.parseInt(countOfEmails.getText());
-        System.out.println(emailsCount);
-        WebElement moreButton = this.driver.findElement(By.cssSelector("span[class='CJ']"));
-        moreButton.click();
+    public GmailMainPage deleteMessages() throws InterruptedException {
+        return deleteAll();
+    }
 
-        for (int i = 0; i < emailsCount; i++) {
-            WebElement firstMessage = this.driver.findElement(By.cssSelector("table[role='grid'] tbody > :first-child"));
-            WebElement deletedEmails = this.driver.findElement(By.cssSelector("a[href='https://mail.google.com/mail/u/0/#trash']"));
-            new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
-            WebElement confirmationToolTip = this.driver.findElement(By.cssSelector("span .bAq"));
-            Assert.assertEquals(confirmationToolTip.getText(), deleteToolTip);
-            Thread.sleep(1000);
-        }
+    protected GmailMainPage deleteAll() throws InterruptedException {
+        new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
+        Thread.sleep(1000);
+        return new GmailMainPage(this.driver);
+    }
+
+    public int countOfSentEmails() {
+        int emailsCount = Integer.parseInt(countOfEmails.getText());
+        return emailsCount;
     }
 }

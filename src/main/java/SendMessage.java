@@ -1,32 +1,88 @@
-import com.beust.jcommander.Parameter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class SendMessage {
     private WebDriver driver;
-    public SendMessage(WebDriver driver){
+    @FindBy(css = "textarea[name='to']")
+    WebElement sendTo;
+    @FindBy(css = "input[name='subjectbox']")
+    WebElement subjectBox;
+    @FindBy(css = "div[class='Am Al editable LW-avf tS-tW']")
+    WebElement textBox;
+    @FindBy(css = "div[class='T-I J-J5-Ji aoO v7 T-I-atl L3']")
+    WebElement sendButton;
+    @FindBy(css = "div[class='Kj-JD-Jl']>button")
+    WebElement noRecipientOk;
+    @FindBy(css = "div[class='aoD hl']")
+    WebElement recipients;
+    @FindBy(css = "div[class='nH Hd']")
+    WebElement sendButton2;
+    @FindBy(css = "div[class='Kj-JD']")
+    WebElement errorPopUp;
+
+    public SendMessage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public void sendTestEmail(String recipient, String subject, String text, String confirmTitle) throws InterruptedException {
-        WebElement newMail = this.driver.findElement(By.cssSelector(".z0 div[role='button']"));
-        newMail.click();
-        WebElement sendTo = this.driver.findElement(By.cssSelector("textarea[name='to']"));
+
+    public GmailMainPage send(String recipient, String subject, String text) {
+        return typeRecipientEmail(recipient).typeSubject(subject).typeMessageText(text).sendMessage();
+    }
+
+    protected SendMessage typeRecipientEmail(String recipient) {
         sendTo.sendKeys(recipient);
-        WebElement subjectBox = this.driver.findElement(By.cssSelector("input[name='subjectbox']"));
+        return this;
+    }
+
+    protected SendMessage typeSubject(String subject) {
         subjectBox.sendKeys(subject);
-        WebElement textBox = this.driver.findElement(By.cssSelector("div[class='Am Al editable LW-avf tS-tW']"));
+        return this;
+    }
+
+    protected SendMessage typeMessageText(String text) {
         textBox.sendKeys(text);
-        WebElement sendButton = this.driver.findElement(By.cssSelector("div[class='T-I J-J5-Ji aoO v7 T-I-atl L3']"));
+        return this;
+    }
+
+    protected GmailMainPage sendMessage() {
+        GmailMainPage gmailMainPage = new GmailMainPage(this.driver);
+        try {
+
+            sendButton.click();
+            waitForSending();
+        } catch (TimeoutException elementException) {
+            SignInPage signInPage = new SignInPage(this.driver);
+            noRecipientOk.click();
+            recipients.click();
+            typeRecipientEmail(signInPage.getMAIL());
+            sendButton.click();
+        }
+        waitForSending();
+        return new GmailMainPage(this.driver);
+    }
+
+    public GmailMainPage noSubject(boolean alertAction, String recipient) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(this.driver, 3);
+        typeRecipientEmail(recipient);
         sendButton.click();
-        Thread.sleep(2000);
-        WebElement confirmationToolTip = this.driver.findElement(By.cssSelector("span .bAq"));
-        WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(confirmationToolTip, "Отправка…")));
-        WebElement confirmationToolTip2 = this.driver.findElement(By.cssSelector("span .bAq"));
-        Assert.assertEquals(confirmationToolTip2.getText(), confirmTitle);
+        Alert alert = this.driver.switchTo().alert();
+        if (alertAction == true) {
+            alert.accept();
+            waitForSending();
+        } else {
+            alert.dismiss();
+            wait.until(ExpectedConditions.visibilityOf(sendButton2));
+        }
+
+        return new GmailMainPage(this.driver);
+    }
+
+    public void waitForSending() {
+        GmailMainPage gmailMainPage = new GmailMainPage(this.driver);
+        WebDriverWait wait = new WebDriverWait(this.driver, 3);
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(gmailMainPage.confirmationToolTip, "Sending...")));
     }
 }

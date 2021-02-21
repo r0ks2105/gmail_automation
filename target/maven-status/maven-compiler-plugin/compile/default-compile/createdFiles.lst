@@ -1,6 +1,10 @@
 JS_Alerts.class
+GmailMainPage.class
 WebDriverInit.class
 GmailLoginPage.class
+InBoxBody.class
+WelcomePage.class
+SignInPage.class
 TestData.class
 GoogleMainPage.class
 SendMessage.class
