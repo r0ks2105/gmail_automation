@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ public class DeleteSentEmails {
     private WebDriver driver;
     @FindBy(xpath = "// div[2]/div[1]/div[2]/div[1]/span/div[1]/span/span[2]")
     WebElement countOfEmails;
-    @FindBy(css = "div[class='ae4 UI'] tbody > :first-child")
+    @FindBy(xpath = "//div[2]/div/table/tbody/tr[1]")
     WebElement firstMessage;
     @FindBy(css = "span .bAq")
     WebElement confirmationToolTip;
@@ -25,13 +26,13 @@ public class DeleteSentEmails {
     public GmailMainPage deleteMessages() throws InterruptedException {
         return deleteAll();
     }
-
+@Step
     protected GmailMainPage deleteAll() throws InterruptedException {
         new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
         Thread.sleep(1000);
         return new GmailMainPage(this.driver);
     }
-
+@Step
     public int countOfSentEmails() {
         int emailsCount = Integer.parseInt(countOfEmails.getText());
         return emailsCount;

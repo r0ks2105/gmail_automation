@@ -6,9 +6,4 @@
             <class name="WebDriverInit"></class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="JS_TEST">
-        <classes>
-            <class name="JS_Alerts"></class>
-        </classes>
-    </test>
 </suite>

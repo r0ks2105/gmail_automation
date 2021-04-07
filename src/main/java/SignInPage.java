@@ -5,23 +5,24 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SignInPage {
-    private final static String MAIL = "r0stselenium01@gmail.com";
+    String property = "login";
+    private final String MAIL = ReadProperties.getInstance().getPropertyValue(property);
     private WebDriver driver;
 
     @FindBy(css = "#identifierId")
     WebElement loginField;
     @FindBy(css = "#identifierNext > div > button > div.VfPpkd-RLmnJb")
     WebElement nextButton;
-    public SignInPage (WebDriver driver){
+    public SignInPage (WebDriver driver) throws Exception {
         PageFactory.initElements(driver, this);
         this.driver=driver;
     }
-    public WelcomePage enterEmail(){
+    public WelcomePage enterEmail() throws Exception {
         loginField.sendKeys(MAIL);
         nextButton.click();
         return new WelcomePage(this.driver);
     }
-    public static String getMAIL() {
+    public String getMAIL() {
         return MAIL;
     }
 }

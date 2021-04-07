@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,27 +29,26 @@ public class SendMessage {
         this.driver = driver;
     }
 
-    public GmailMainPage send(String recipient, String subject, String text) {
+    public GmailMainPage send(String recipient, String subject, String text) throws Exception {
         return typeRecipientEmail(recipient).typeSubject(subject).typeMessageText(text).sendMessage();
     }
-
+@Step
     protected SendMessage typeRecipientEmail(String recipient) {
         sendTo.sendKeys(recipient);
         return this;
     }
-
+@Step
     protected SendMessage typeSubject(String subject) {
         subjectBox.sendKeys(subject);
         return this;
     }
-
+@Step
     protected SendMessage typeMessageText(String text) {
         textBox.sendKeys(text);
         return this;
     }
-
-    protected GmailMainPage sendMessage() {
-        GmailMainPage gmailMainPage = new GmailMainPage(this.driver);
+@Step
+    protected GmailMainPage sendMessage() throws Exception {
         try {
 
             sendButton.click();
@@ -63,7 +63,7 @@ public class SendMessage {
         waitForSending();
         return new GmailMainPage(this.driver);
     }
-
+@Step
     public GmailMainPage noSubject(boolean alertAction, String recipient) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(this.driver, 3);
         typeRecipientEmail(recipient);

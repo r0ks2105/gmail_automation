@@ -106,5 +106,5 @@ public class GmailMainPage {
         wait.until(ExpectedConditions.visibilityOf(confirmationToolTip));
         return confirmationToolTip.getText();
     }
-    // TODO: method get las message
+
 }

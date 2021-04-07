@@ -5,7 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class WelcomePage {
-    private final static String PASSWORD = "Passw0rdqwe";
+
+    String property = "password";
+    private final String PASSWORD = ReadProperties.getInstance().getPropertyValue(property);
     private WebDriver driver;
 
     @FindBy(name = "password")
@@ -13,7 +15,7 @@ public class WelcomePage {
     @FindBy(css = "#passwordNext > div > button > div.VfPpkd-RLmnJb")
     WebElement nextButton;
 
-    public WelcomePage (WebDriver driver){
+    public WelcomePage (WebDriver driver) throws Exception {
         PageFactory.initElements(driver, this);
         this.driver=driver;
 

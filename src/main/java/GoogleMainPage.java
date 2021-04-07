@@ -14,7 +14,7 @@ public class GoogleMainPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public SignInPage loginPage(){
+    public SignInPage loginPage() throws Exception {
         gmail.click();
         SigIn.click();
         for (String childTab:driver.getWindowHandles()){
