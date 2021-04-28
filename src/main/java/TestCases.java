@@ -118,7 +118,7 @@ public class TestCases {
 
     @Test
     @TmsLink("threats")
-    @Issue("repository")
+    @Issue("P_EEI-9587")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test for deleting one message via drag and drop")
     public void deleteOneSentEmail() throws InterruptedException {

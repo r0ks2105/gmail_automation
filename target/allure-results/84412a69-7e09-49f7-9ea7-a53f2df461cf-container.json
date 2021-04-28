@@ -1,1 +1,0 @@
-{"uuid":"84412a69-7e09-49f7-9ea7-a53f2df461cf","name":"RestAssured.RestAssuredInit","children":["63219d2c-b7da-4ba1-af91-08e373bf40ce"],"befores":[{"name":"setBaseURL","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1616580122413,"stop":1616580123462}],"afters":[],"links":[],"start":1616580122365,"stop":1616580126054}
