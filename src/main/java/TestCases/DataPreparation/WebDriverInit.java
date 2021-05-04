@@ -1,3 +1,5 @@
+package TestCases.DataPreparation;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import org.openqa.selenium.*;

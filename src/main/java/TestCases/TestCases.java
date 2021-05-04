@@ -1,3 +1,8 @@
+package TestCases;
+
+import PageObjects.*;
+import RestAssured.ReadProperties;
+import TestCases.DataPreparation.WebDriverInit;
 import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -11,6 +16,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class TestCases {
     static WebDriverInit webDriverInit = new WebDriverInit();
@@ -55,10 +62,10 @@ public class TestCases {
     @Issue("files")
     @Severity(SeverityLevel.MINOR)
     @Description("Test for the case when the letter is sent without a Subject (Positive)")
-    public void sendMessageWithoutSubjectPositive() throws InterruptedException {
+    public void sendMessageWithoutSubjectPositive() throws InterruptedException, IOException {
         action=true;
         String confirmTitle = "Message sent.";
-        String recipient = "mytests4selenium@yopmail.com";
+        String recipient = ReadProperties.getInstance().getPropertyValue("recipient");
         GmailMainPage gmailMainPage = new GmailMainPage(webDriverInit.driverThreadSafe.get());
         SendMessage sendMessage = new SendMessage(webDriverInit.driverThreadSafe.get());
         gmailMainPage.newMessage();
@@ -71,9 +78,9 @@ public class TestCases {
     @Issue("repository")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test for the case when the letter is sent without a Subject (Negative)")
-    public void sendMessageWithoutSubjectNegative() throws InterruptedException {
+    public void sendMessageWithoutSubjectNegative() throws InterruptedException, IOException {
         action=false;
-        String recipient = "mytests4selenium@yopmail.com";
+        String recipient = ReadProperties.getInstance().getPropertyValue("recipient");
         GmailMainPage gmailMainPage = new GmailMainPage(webDriverInit.driverThreadSafe.get());
         SendMessage sendMessage = new SendMessage(webDriverInit.driverThreadSafe.get());
         gmailMainPage.newMessage();

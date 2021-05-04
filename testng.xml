@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="LoginToGmail">
         <classes>
-            <class name="WebDriverInit"></class>
+            <class name="TestCases.DataPreparation.WebDriverInit"></class>
         </classes>
     </test>
 </suite>

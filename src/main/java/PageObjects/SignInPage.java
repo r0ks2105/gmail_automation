@@ -1,4 +1,7 @@
-import org.openqa.selenium.By;
+package PageObjects;
+
+import PageObjects.WelcomePage;
+import RestAssured.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

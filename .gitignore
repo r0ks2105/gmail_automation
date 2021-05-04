@@ -1,2 +1,7 @@
 .idea/*
 *.class
+.allure/*
+allure-results/*
+target/*
+debug.log
+selenium.advanced.test.iml

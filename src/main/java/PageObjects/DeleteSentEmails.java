@@ -1,5 +1,7 @@
+package PageObjects;
+
+import PageObjects.GmailMainPage;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,6 +15,7 @@ public class DeleteSentEmails {
     @FindBy(xpath = "//div[2]/div/table/tbody/tr[1]")
     WebElement firstMessage;
     @FindBy(css = "span .bAq")
+    public
     WebElement confirmationToolTip;
     @FindBy(css = "a[href='https://mail.google.com/mail/u/0/#trash']")
     WebElement deletedEmails;
@@ -27,7 +30,7 @@ public class DeleteSentEmails {
         return deleteAll();
     }
 @Step
-    protected GmailMainPage deleteAll() throws InterruptedException {
+public GmailMainPage deleteAll() throws InterruptedException {
         new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
         Thread.sleep(1000);
         return new GmailMainPage(this.driver);

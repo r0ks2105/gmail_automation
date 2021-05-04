@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="Add comment to computer2">
         <classes>
-            <class name="GoogleMainPage"></class>
+            <class name="PageObjects.GoogleMainPage"></class>
         </classes>
     </test>
 </suite>
