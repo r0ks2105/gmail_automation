@@ -1,5 +1,6 @@
 package PageObjects;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -61,6 +62,7 @@ public class SendMessage {
             recipients.click();
             typeRecipientEmail(signInPage.getMAIL());
             sendButton.click();
+            takeScreenshot();
         }
         waitForSending();
         return new GmailMainPage(this.driver);
@@ -77,6 +79,7 @@ public class SendMessage {
         } else {
             alert.dismiss();
             wait.until(ExpectedConditions.visibilityOf(sendButton2));
+            takeScreenshot();
         }
 
         return new GmailMainPage(this.driver);
@@ -86,5 +89,10 @@ public class SendMessage {
         GmailMainPage gmailMainPage = new GmailMainPage(this.driver);
         WebDriverWait wait = new WebDriverWait(this.driver, 3);
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(gmailMainPage.confirmationToolTip, "Sending...")));
+    }
+
+     @Attachment
+    private byte[] takeScreenshot(){
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 }

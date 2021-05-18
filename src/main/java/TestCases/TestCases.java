@@ -30,7 +30,6 @@ public class TestCases {
     }
 
     @BeforeClass public static void gmailLogin() throws Exception {
-        //webDriverInit.positiveLogin();
         GoogleMainPage gmailLogin = new GoogleMainPage(webDriverInit.driverThreadSafe.get());
         gmailLogin.loginPage();
         SignInPage signIn = new SignInPage(webDriverInit.driverThreadSafe.get());
@@ -43,7 +42,7 @@ public class TestCases {
         System.out.println(webDriverInit.driverThreadSafe.get());
     }
 
-    @Test(dataProvider = "testData", dataProviderClass = TestData.class)
+    @Test(groups = {"Sending messages"}, dataProvider = "testData", dataProviderClass = TestData.class)
     @TmsLink("threats")
     @Issue("repository")
     @Severity(SeverityLevel.CRITICAL)
@@ -54,10 +53,10 @@ public class TestCases {
         SendMessage sendMessage = gmailMainPage.newMessage();
         sendMessage.send(recipient, subject, text);
         Assert.assertEquals(gmailMainPage.getLastMessage(), confirmTitle);
-        takeScreenshot();
+
     }
 
-    @Test
+    @Test(groups = {"Sending messages"})
     @TmsLink("threats")
     @Issue("files")
     @Severity(SeverityLevel.MINOR)
@@ -71,9 +70,9 @@ public class TestCases {
         gmailMainPage.newMessage();
         sendMessage.noSubject(action, recipient);
         Assert.assertEquals(gmailMainPage.getLastMessage(), confirmTitle);
-        takeScreenshot();
+
     }
-    @Test
+    @Test(groups = {"Sending messages"})
     @TmsLink("threats")
     @Issue("repository")
     @Severity(SeverityLevel.NORMAL)
@@ -86,10 +85,10 @@ public class TestCases {
         gmailMainPage.newMessage();
         sendMessage.noSubject(action, recipient);
         Assert.assertTrue(webDriverInit.driverThreadSafe.get().findElement(By.cssSelector("div[class='nH Hd']")).isDisplayed());
-        takeScreenshot();
+
     }
 
-    @Test(dataProvider = "testData", dataProviderClass = TestData.class)
+    @Test(groups = {"Deleting messages"}, dataProvider = "testData", dataProviderClass = TestData.class)
     @TmsLink("threats")
     @Issue("repository")
     @Severity(SeverityLevel.MINOR)
@@ -106,7 +105,7 @@ public class TestCases {
             for (int i = 0; i < count; i++) {
                 deleteSentEmails.deleteMessages();
                 Assert.assertEquals(deleteSentEmails.confirmationToolTip.getText(), deleteSentEmails.deleteToolTip);
-                takeScreenshot();
+
             }
         } catch (NoSuchElementException elementException) {
             gmailMainPage.newMessage();
@@ -118,12 +117,12 @@ public class TestCases {
         for (int i = 0; i < count; i++) {
             deleteSentEmails.deleteMessages();
             Assert.assertEquals(deleteSentEmails.confirmationToolTip.getText(), deleteSentEmails.deleteToolTip);
-            takeScreenshot();
+
         }
 
     }
 
-    @Test
+    @Test(groups = {"Deleting messages"})
     @TmsLink("threats")
     @Issue("P_EEI-9587")
     @Severity(SeverityLevel.CRITICAL)
@@ -135,7 +134,7 @@ public class TestCases {
         gmailMainPage.openMore();
         deleteSentEmails.deleteAll();
         Assert.assertEquals(deleteSentEmails.confirmationToolTip.getText(), deleteSentEmails.deleteToolTip);
-        takeScreenshot();
+
     }
     @AfterClass
     public void closeBrowser() throws InterruptedException {
@@ -143,9 +142,6 @@ public class TestCases {
     }
 
 
-    @Attachment
-    private byte[] takeScreenshot(){
-        return ((TakesScreenshot)webDriverInit.driverThreadSafe.get()).getScreenshotAs(OutputType.BYTES);
-    }
+
 }
 

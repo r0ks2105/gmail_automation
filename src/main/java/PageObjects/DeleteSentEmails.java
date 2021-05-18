@@ -1,7 +1,10 @@
 package PageObjects;
 
 import PageObjects.GmailMainPage;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -33,11 +36,18 @@ public class DeleteSentEmails {
 public GmailMainPage deleteAll() throws InterruptedException {
         new Actions(driver).dragAndDrop(firstMessage, deletedEmails).release().perform();
         Thread.sleep(1000);
+    takeScreenshot();
         return new GmailMainPage(this.driver);
+
     }
 @Step
     public int countOfSentEmails() {
         int emailsCount = Integer.parseInt(countOfEmails.getText());
         return emailsCount;
+    }
+
+    @Attachment
+    private byte[] takeScreenshot(){
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 }
