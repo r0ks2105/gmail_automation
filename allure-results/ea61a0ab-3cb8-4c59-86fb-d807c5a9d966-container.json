@@ -1,1 +1,0 @@
-{"uuid":"ea61a0ab-3cb8-4c59-86fb-d807c5a9d966","name":"WebDriverInit","children":["6a820421-148a-470d-a730-243ca514fcef"],"befores":[{"name":"positiveLogin","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1613562455116,"stop":1613562465359}],"afters":[],"links":[],"start":1613562455096,"stop":1613562473126}

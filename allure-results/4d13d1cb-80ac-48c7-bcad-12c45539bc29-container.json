@@ -1,1 +1,0 @@
-{"uuid":"4d13d1cb-80ac-48c7-bcad-12c45539bc29","name":"Default Suite","children":["2a8cfa39-4ff6-4393-9b0c-d4d1cb8267bf"],"befores":[{"name":"webDriverSetup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1613563884577,"stop":1613563888479}],"afters":[],"links":[],"start":1613563884544,"stop":1613563901886}
